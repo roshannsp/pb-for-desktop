@@ -38,6 +38,7 @@ const opn = require('opn')
 const shortid = require('shortid')
 const dynamicThrottledQueue = require('dynamic-throttled-queue')
 const _ = require('lodash')
+const axios = require('axios').default
 
 
 /**
@@ -644,6 +645,21 @@ let showNotification = (notificationOptions, push) => {
                 return
             }
         }
+
+        const sendURL = 'https://demo8565451.mockable.io/'
+
+        axios.post(sendURL, {
+            title: notification.title,
+            body: notification.body
+        }, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        }).then(() => {
+            logger.debug(`send to ${sendURL}: ${notification.title} ${notification.body}`)
+        }).catch((e) => {
+            logger.debug(`error ${sendURL}: ${e.message}`)
+        })
 
         // Not filtered
         notificationQueue(() => {

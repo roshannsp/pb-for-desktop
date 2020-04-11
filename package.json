@@ -63,6 +63,7 @@
     "app-root-path": "^3.0.0",
     "appdirectory": "^0.1.0",
     "auto-launch": "git+https://sidneys@github.com/sidneys/node-auto-launch.git#bugfixes-maintainance",
+    "axios": "^0.19.2",
     "data-uri-to-buffer": "^3.0.0",
     "dynamic-throttled-queue": "^1.1.1",
     "electron-editor-context-menu": "^1.1.1",
